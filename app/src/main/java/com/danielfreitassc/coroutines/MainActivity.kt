@@ -87,7 +87,7 @@ fun TrafficLight(corAcesa: String) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
-            .background(Color(0x99000000)) // leve escurecimento pra destacar o semáforo
+            .background(Color.Gray) // leve escurecimento pra destacar o semáforo
             .padding(16.dp)
     ) {
         LightBox(isOn = corAcesa == "red", color = Color.Red)
