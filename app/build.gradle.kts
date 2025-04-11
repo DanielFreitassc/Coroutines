@@ -2,16 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.google.devtools.ksp")
-
 }
 
 android {
-    namespace = "com.danielfreitassc.contatosapp"
+    namespace = "com.danielfreitassc.coroutines"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.danielfreitassc.contatosapp"
+        applicationId = "com.danielfreitassc.coroutines"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -42,15 +40,6 @@ android {
 }
 
 dependencies {
-    val room_version = "2.6.1"
-
-
-    implementation("androidx.room:room-runtime:$room_version")
-
-    // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
-    // See Add the KSP plugin to your project
-    ksp("androidx.room:room-compiler:$room_version")
-
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

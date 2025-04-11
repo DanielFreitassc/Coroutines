@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ContatosApp"
+rootProject.name = "Coroutines"
 include(":app")
  

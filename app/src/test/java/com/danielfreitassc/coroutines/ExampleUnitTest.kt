@@ -1,4 +1,4 @@
-package com.danielfreitassc.contatosapp
+package com.danielfreitassc.coroutines
 
 import org.junit.Test
 

@@ -1,8 +1,9 @@
-package com.danielfreitassc.contatosapp
+package com.danielfreitassc.coroutines
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -12,6 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 
@@ -49,18 +52,31 @@ fun SemaforoApp() {
         }
     }
 
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(32.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TrafficLight(corAcesa)
-        Spacer(modifier = Modifier.height(32.dp))
+        // Imagem de fundo
+        Image(
+            painter = painterResource(id = R.drawable.background),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
 
-        Button(onClick = { isRunning = !isRunning }) {
-            Text(if (isRunning) "Parar" else "Iniciar")
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(32.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            TrafficLight(corAcesa)
+            Spacer(modifier = Modifier.height(32.dp))
+
+            Button(onClick = { isRunning = !isRunning }) {
+                Text(if (isRunning) "Parar" else "Iniciar")
+            }
         }
     }
 }
@@ -70,8 +86,8 @@ fun TrafficLight(corAcesa: String) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.
-        background(Color.DarkGray)
+        modifier = Modifier
+            .background(Color(0x99000000)) // leve escurecimento pra destacar o semáforo
             .padding(16.dp)
     ) {
         LightBox(isOn = corAcesa == "red", color = Color.Red)
